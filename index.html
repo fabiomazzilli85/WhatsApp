@@ -60,7 +60,7 @@
 						<i class="fa-solid fa-magnifying-glass"></i>
 					</div>
 					<ul>
-						<li v-for="(contact, index) in contacts" :key="index">
+						<li v-for="(contact, index) in contacts" :key="index" @click="setActiveName(contact.name)" :class="{ 'active': activeName === contact.name }">
 						  <img class="contatti" :src="contact.image" :alt="contact.name" style="width: 50px; height: 50px;">
 						  {{ contact.name }}
 						</li>
