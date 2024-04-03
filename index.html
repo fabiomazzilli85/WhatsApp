@@ -91,7 +91,18 @@
 						</ul>
 					</div>
 
-					<ul class="chat">
+					<ul>
+						<li class="inviati" v-for="(message, index) in sentMessages" :key="'sent' + index">
+						  {{ message }}
+						</li>
+					</ul>
+
+					<ul>
+						<li class="ricevuti" v-for="(message, index) in receivedMessages" :key="'received' + index">
+						  {{ message }}
+						</li>
+					</ul>
+					<!-- <ul class="chat">
 						<li class="message sent">
 							Messaggio bello 1
 							<span class="message__time">15:03</span>
@@ -119,7 +130,7 @@
 							Messaggio 2
 							<span class="message__time">15:03</span>
 						</li>
-					</ul>
+					</ul> -->
 
 					<div class="toolbar chat-toolbar">
 						<span class="icon">
