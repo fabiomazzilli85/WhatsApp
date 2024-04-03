@@ -60,13 +60,13 @@
 						<i class="fa-solid fa-magnifying-glass"></i>
 					</div>
 					<ul>
-						<li v-for="(contact, index) in contacts" :key="index" @click="setActiveName(contact.name)" :class="{ 'active': activeName === contact.name }">
-						  <img class="contatti" :src="contact.image" :alt="contact.name" style="width: 50px; height: 50px;">
+						<li v-for="contact in contacts" :key="contact.name">
+							<img class="contatti" :src="contact.image" :alt="contact.name" style="width: 50px; height: 50px;">
 						  {{ contact.name }}
 						</li>
 					  </ul>
-<!-- 
-					  Con questo v-for ho ciclato gli elementi presnti nell'Array di Oggetti in JS. Gli elementi che erano inseriti nell'HTML sono stati dunque "sostituiti" dal ciclo for di JS.  -->
+
+				
 
 				</header>
 				<main class="chat-wrapper">
