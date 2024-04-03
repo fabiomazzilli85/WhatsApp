@@ -5,7 +5,7 @@ createApp({
     return {
       contacts: [
         {
-          name: 'Alice',
+          name: 'Martin',
           image: 'img/avatar_1.jpg',
           messaggi: [
             "Ciao! Come stai?",
@@ -32,7 +32,7 @@ createApp({
           ]
         },
         {
-          name: 'Stefania',
+          name: 'Woody',
           image: 'img/avatar_4.jpg',
           messaggi: [
             "Davvero bella Genova come città",
@@ -49,7 +49,13 @@ createApp({
             "Ho appena finito un buon libro, consiglio a tutti!"
           ]
         }
-      ]
+      ],
+      activeContact: null
+    }
+  },
+  methods: {
+    toggleMessages(index) {
+      this.activeContact = this.activeContact === index ? null : index;
     }
   }
 }).mount('#app');
