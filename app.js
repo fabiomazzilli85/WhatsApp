@@ -12,7 +12,8 @@ createApp({
         { name: 'Gianluca', image: 'img/avatar_6.jpg' },
         { name: 'Ettore', image: 'img/avatar_7.jpg' }
       ],
-       sentMessages: [
+      activeName: null,
+      sentMessages: [
         'Ciao! Come va?',
         'Sto preparando il pranzo.'
       ],
@@ -21,5 +22,10 @@ createApp({
         'Buonanotte!'
       ]
     };
+  },
+  methods: {
+    setActiveName(name) {
+      this.activeName = name;
+    }
   }
 }).mount('#app');
