@@ -11,6 +11,14 @@ createApp({
         { name: 'Fabio', image: 'img/avatar_5.jpg' },
         { name: 'Gianluca', image: 'img/avatar_6.jpg' },
         { name: 'Ettore', image: 'img/avatar_7.jpg' }
+      ],
+       sentMessages: [
+        'Ciao! Come va?',
+        'Sto preparando il pranzo.'
+      ],
+      receivedMessages: [
+        'Domani ci vediamo al parco?',
+        'Buonanotte!'
       ]
     };
   }
