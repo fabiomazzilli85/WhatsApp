@@ -91,14 +91,16 @@ textarea {
 	display: block;
 }
 
-.message.received {
-	background-color: white;
+.ricevuti {
+	background-color: rgb(232, 218, 218);
 	align-self: flex-start;
+	padding: 10px;
 }
 
-.message.sent {
+.inviati {
 	background-color: #def8c0;
 	align-self: flex-end;
+	padding: 10px;
 }
 
 .message.sent + .message.sent,
