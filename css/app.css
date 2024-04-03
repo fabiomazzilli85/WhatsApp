@@ -329,3 +329,8 @@ textarea {
 .contatti {
 	margin: 0 20px;
 }
+
+.active {
+	background-color: brown;
+	color: white;
+}
