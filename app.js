@@ -15,7 +15,7 @@ createApp({
         },
         {
           name: 'Bob',
-          image: 'img/avata_2.jpg',
+          image: 'img/avatar_2.jpg',
           messaggi: [
             "Hey, tutto bene?",
             "Che ne dici di fare una passeggiata questo fine settimana?",
