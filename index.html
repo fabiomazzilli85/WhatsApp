@@ -90,7 +90,7 @@
 						</ul>
 					</div>
 
-					<div v-if="selectedContact">
+					<div class="chat" v-if="selectedContact">
 						<p>{{ selectedContact.name }}</p>
 						<ul>
 						  <li v-for="message in selectedContact.messages" :key="message.date">
