@@ -323,3 +323,13 @@ textarea {
 		display: flex;
 	}
 }
+
+.aside-flex {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.img-margin {
+	margin: 10px 20px;
+}
