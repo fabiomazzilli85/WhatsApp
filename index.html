@@ -20,6 +20,7 @@
 		<link rel="stylesheet" href="./css/app.css" />
 	</head>
 	<body class="">
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 		<div id="app">
 			<div class="app__content">
 				<header class="sidebar debug">
@@ -59,17 +60,11 @@
 						<i class="fa-solid fa-magnifying-glass"></i>
 					</div>
 					<ul class="contacts">
-						<li class="contact toast">
-							<div class="contact__info toast__content">
-								<img class="contact__image" src="./img/avatar_1.jpg" alt="" />
-								<div class="d-none d-lg-block">
-									<h3 class="contact__name">Michele</h3>
-									<p class="last-access">Lorem ipsum dolor sit.</p>
-								</div>
-							</div>
-							<span class="time d-none d-lg-block"> 16:15 </span>
-						</li>
-					
+						<div v-for="(contact, index) in contacts" :key="index">
+			
+							<p>{{ contact.name }}</p>
+							<img :src="contact.avatar" alt="Avatar" :style="{ width: '50px', height: '50px' }">
+						</div>
 					</ul>
 				</header>
 				<main class="chat-wrapper">
@@ -140,5 +135,6 @@
 				</main>
 			</div>
 		</div>
+		<script src="app.js"></script>
 	</body>
 </html>
