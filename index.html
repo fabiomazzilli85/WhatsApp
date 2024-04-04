@@ -60,7 +60,7 @@
 						<i class="fa-solid fa-magnifying-glass"></i>
 					</div>
 					<ul class="contacts">
-						<div v-for="contact in contacts" :key="contact.name" @click="showMessages(contact)">
+						<div v-for="contact in contacts" :key="contact.name" @click="showMessages(contact)" :class="{ 'clicked': selectedContact === contact }">
 							<div class="aside-flex">
 								<img class="img-margin" :src="contact.avatar" alt="Avatar" :style="{ width: '60px', height: '60px' }">
 								<p>{{ contact.name }}</p>
