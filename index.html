@@ -90,15 +90,15 @@
 						</ul>
 					</div>
 
-					<div class="chat" v-if="selectedContact">
-						<p>{{ selectedContact.name }}</p>
-						<ul>
-						  <li v-for="message in selectedContact.messages" :key="message.date">
-							<p>{{ message.message }}</p>
-							<p>{{ message.date }}</p>
-						  </li>
-						</ul>
-					  </div>
+					<div class="chat">
+						<div v-if="selectedContact">
+							<ul>
+						 		<li v-for="message in selectedContact.messages" :key="message.date" :class="getMessageClass(message.status)">
+									<p>{{ message.message }}</p>
+									<p>{{ extractTime(message.date) }}</p>
+						  		</li>
+							</ul>
+					  	</div>
 					</div>
 
 					<div class="toolbar chat-toolbar">
