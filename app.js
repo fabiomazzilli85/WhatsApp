@@ -170,11 +170,12 @@ createApp({
       ]
     }
   },
+
   methods: {
     showMessages(contact) {
       this.selectedContact = contact;
     },
-    
+
     getMessageClass(status) {
       return {
         sent: status === 'sent',
@@ -183,11 +184,11 @@ createApp({
     },
 
     extractTime(dateTime) {
-      return dateTime.split(' ')[1].slice(0, 5);
+      return dateTime.split(' ')[1].slice(0, 5); // Qui uso i metodi split (per ''separare'' la data) e slice (che estrae dalla posizione 0 alla 5)
     },
 
     addMessage() {
-      if (this.newMessage.trim() !== '') {
+      if (this.newMessage.trim() !== '') { // Qui trimmo il messaggio: l'utente non può inserire una stringa vuota.
         const newMsg = {
           message: this.newMessage,
           date: new Date().toLocaleString(), // Con questo metodo JS inserisce la data reale nel messaggio. 
@@ -195,7 +196,19 @@ createApp({
         };
         this.selectedContact.messages.push(newMsg); // Pusho il  messaggio nell'array dei messages del contatto selezionato
         this.newMessage = '';
+
+        setTimeout(this.sendAutoResponse, 1000); // Imposto il timer in millisecondi.
       }
+    },
+
+    sendAutoResponse() {
+      const autoResponse = {
+        message: 'Ok',
+        date: new Date().toLocaleString(),
+        status: 'received'
+        // Questi sono gli stessi elementi che compongono l'Array messages a parte la funzione che stampa l'ora reale, sempre in date.
+      };
+      this.selectedContact.messages.push(autoResponse); // Contatto selezionato > Messages > Pushato > 
     }
   }
 }).mount('#app');
