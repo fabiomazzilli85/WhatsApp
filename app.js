@@ -4,6 +4,7 @@ createApp({
   data() {
     return {
       selectedContact: null,
+      newMessage: '',
       contacts: [
         {
           name: 'Michele',
@@ -173,14 +174,28 @@ createApp({
     showMessages(contact) {
       this.selectedContact = contact;
     },
+    
     getMessageClass(status) {
       return {
         sent: status === 'sent',
         received: status === 'received',
       };
     },
+
     extractTime(dateTime) {
       return dateTime.split(' ')[1].slice(0, 5);
+    },
+
+    addMessage() {
+      if (this.newMessage.trim() !== '') {
+        const newMsg = {
+          message: this.newMessage,
+          date: new Date().toLocaleString(), // Con questo metodo JS inserisce la data reale nel messaggio. 
+          status: 'sent'
+        };
+        this.selectedContact.messages.push(newMsg); // Pusho il  messaggio nell'array dei messages del contatto selezionato
+        this.newMessage = '';
+      }
     }
   }
 }).mount('#app');
