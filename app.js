@@ -172,6 +172,15 @@ createApp({
   methods: {
     showMessages(contact) {
       this.selectedContact = contact;
+    },
+    getMessageClass(status) {
+      return {
+        sent: status === 'sent',
+        received: status === 'received',
+      };
+    },
+    extractTime(dateTime) {
+      return dateTime.split(' ')[1].slice(0, 5);
     }
   }
 }).mount('#app');
