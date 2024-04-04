@@ -5,6 +5,7 @@ createApp({
     return {
       selectedContact: null,
       newMessage: '',
+      searchText: '',
       contacts: [
         {
           name: 'Michele',
