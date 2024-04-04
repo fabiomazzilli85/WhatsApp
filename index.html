@@ -61,9 +61,10 @@
 					</div>
 					<ul class="contacts">
 						<div v-for="(contact, index) in contacts" :key="index">
-			
-							<p>{{ contact.name }}</p>
-							<img :src="contact.avatar" alt="Avatar" :style="{ width: '50px', height: '50px' }">
+							<div class="aside-flex">
+								<img class="img-margin" :src="contact.avatar" alt="Avatar" :style="{ width: '60px', height: '60px' }">
+								<p>{{ contact.name }}</p>
+							</div>
 						</div>
 					</ul>
 				</header>
