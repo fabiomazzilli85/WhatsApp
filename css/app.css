@@ -91,16 +91,14 @@ textarea {
 	display: block;
 }
 
-.ricevuti {
-	background-color: rgb(232, 218, 218);
+.message.received {
+	background-color: white;
 	align-self: flex-start;
-	padding: 10px;
 }
 
-.inviati {
+.message.sent {
 	background-color: #def8c0;
 	align-self: flex-end;
-	padding: 10px;
 }
 
 .message.sent + .message.sent,
@@ -324,13 +322,4 @@ textarea {
 	.d-lg-flex {
 		display: flex;
 	}
-}
-
-.contatti {
-	margin: 0 20px;
-}
-
-.contact {
-	background-color: brown;
-	color: white;
 }
