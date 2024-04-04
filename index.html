@@ -61,9 +61,6 @@
 						<i class="fa-solid fa-magnifying-glass"></i>
 					</div>
 
-					<ul>
-						<li v-for="contact in filteredContacts" :key="contact.name">{{ contact.name }}</li>
-					</ul>
 
 					<ul class="contacts">
 						<div v-for="contact in contacts" :key="contact.name" @click="showMessages(contact)" :class="{ 'clicked': selectedContact === contact }">
