@@ -108,7 +108,9 @@
 						<input
 							class="chat__input"
 							type="text"
+							v-model="newMessage"
 							placeholder="Scrivi un messaggio"
+							@keyup.enter="addMessage"
 						/>
 						<span class="icon">
 							<i class="fa-solid fa-microphone"></i>
