@@ -350,3 +350,8 @@ textarea {
 .img-margin {
 	margin: 10px 20px;
 }
+
+.clicked {
+	background-color: lightgray; 
+	cursor: pointer;
+  } 
