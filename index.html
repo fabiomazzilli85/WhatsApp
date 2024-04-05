@@ -56,10 +56,12 @@
 						<input
 							type="text"
 							name="search"
-							v-model="searchQuery"
 							placeholder="Cerca o inizia una nuova chat"
 						/>
 						<i class="fa-solid fa-magnifying-glass"></i>
+						<ul>
+							<li v-for="contact in matchedNames" :key="contact.id">{{ contact.name }}</li>
+						  </ul>
 					</div>
 
 					<ul class="contacts">
