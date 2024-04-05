@@ -203,13 +203,39 @@ createApp({
     },
 
     sendAutoResponse() {
+      // Funzione per generare una stringa casuale
+      // Funzione per generare una stringa casuale esattamente come avviene con i number. 
+      // Creo una costante che contiene tutte le lettere dell'alfabeto, maiuscole e minusciole, più i numeri.
+      // Let result ovviamente stringa vuota.
+      // Uso un ciclo for per ciclare e faccio un return.  
+      // La risposta che il sistema genera ovviamente non ha senso, è una parola che non esiste. Ho implementato questa funzione a solo scopo didattico al posto dell'Ok richiesto da Gianluca, che ho precedentemente inserito e commentato sotto. 
+      const generateString = (length) => {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let result = '';
+        const charactersLength = characters.length;
+        for (let i = 0; i < length; i++) {
+          result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+      };
+
+      //   sendAutoResponse() {
+      // const autoResponse = {
+      //    message: 'Ok',
+      //    date: new Date().toLocaleString(),
+      //    status: 'received'
+      // Questi sono gli stessi elementi che compongono l'Array messages a parte la funzione che stampa l'ora reale, sempre in date.
+
+
+      // Creazione dell'oggetto autoResponse
       const autoResponse = {
-        message: 'Ok',
+        message: generateString(10), // Genera una stringa casuale di lunghezza 10
         date: new Date().toLocaleString(),
         status: 'received'
-        // Questi sono gli stessi elementi che compongono l'Array messages a parte la funzione che stampa l'ora reale, sempre in date.
       };
-      this.selectedContact.messages.push(autoResponse); // Contatto selezionato > Messages > Pushato > 
+
+      // Push dell'autoResponse nell'array messages del contatto selezionato
+      this.selectedContact.messages.push(autoResponse);
     }
   }
-}).mount('#app');
+}).mount('#app');    
