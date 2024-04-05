@@ -236,10 +236,5 @@ createApp({
 
       this.selectedContact.messages.push(autoResponse);
     },
-    searchNames() {
-      this.matchedNames = this.contacts.filter(contact => {
-        return contact.name.toLowerCase().includes(this.searchQuery.toLowerCase());
-      });
-    }
   }
 }).mount('#app');
