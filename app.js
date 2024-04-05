@@ -5,7 +5,6 @@ createApp({
     return {
       selectedContact: null,
       newMessage: '',
-      searchText: '',
       contacts: [
         {
           name: 'Michele',
@@ -172,6 +171,7 @@ createApp({
     }
   },
 
+
   methods: {
     showMessages(contact) {
       this.selectedContact = contact;
@@ -189,14 +189,14 @@ createApp({
     },
 
     addMessage() {
-      if (this.newMessage.trim() !== '') { // Qui trimmo il messaggio: l'utente non può inserire una stringa vuota.
+      if (this.newMessage.trim() !== '') { // Con questo metodo JS inserisce la data reale nel messaggio. 
         const newMsg = {
           message: this.newMessage,
           date: new Date().toLocaleString(), // Con questo metodo JS inserisce la data reale nel messaggio. 
           status: 'sent'
         };
         this.selectedContact.messages.push(newMsg); // Pusho il  messaggio nell'array dei messages del contatto selezionato
-        this.newMessage = '';
+        this.newMessage = ''; // Pulisco il campo con stringa vuota.
 
         setTimeout(this.sendAutoResponse, 1000); // Imposto il timer in millisecondi.
       }
@@ -219,6 +219,12 @@ createApp({
         return result;
       };
 
+      const autoResponse = {
+        message: generateString(10),
+        date: new Date().toLocaleString(),
+        status: 'received'
+      };
+
       //   sendAutoResponse() {
       // const autoResponse = {
       //    message: 'Ok',
@@ -226,16 +232,7 @@ createApp({
       //    status: 'received'
       // Questi sono gli stessi elementi che compongono l'Array messages a parte la funzione che stampa l'ora reale, sempre in date.
 
-
-      // Creazione dell'oggetto autoResponse
-      const autoResponse = {
-        message: generateString(10), // Genera una stringa casuale di lunghezza 10
-        date: new Date().toLocaleString(),
-        status: 'received'
-      };
-
-      // Push dell'autoResponse nell'array messages del contatto selezionato
       this.selectedContact.messages.push(autoResponse);
-    }
+    },
   }
-}).mount('#app');    
+}).mount('#app');
