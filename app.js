@@ -5,6 +5,8 @@ createApp({
     return {
       selectedContact: null,
       newMessage: '',
+      searchQuery: '',
+      matchedNames: [],
       contacts: [
         {
           name: 'Michele',
@@ -234,5 +236,10 @@ createApp({
 
       this.selectedContact.messages.push(autoResponse);
     },
+    searchNames() {
+      this.matchedNames = this.contacts.filter(contact => {
+        return contact.name.toLowerCase().includes(this.searchQuery.toLowerCase());
+      });
+    }
   }
 }).mount('#app');
