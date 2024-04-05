@@ -18,7 +18,7 @@
 			referrerpolicy="no-referrer"
 		/>
 		<link rel="stylesheet" href="./css/app.css" />
-	</head>
+		</head>
 	<body class="">
 		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 		<div id="app">
@@ -56,22 +56,28 @@
 						<input
 							type="text"
 							name="search"
+							v-model="searchName"
+							@keyup.enter="searchContacts"
 							placeholder="Cerca o inizia una nuova chat"
 						/>
 						<i class="fa-solid fa-magnifying-glass"></i>
-						<ul>
-							<li v-for="contact in matchedNames" :key="contact.id">{{ contact.name }}</li>
-						  </ul>
 					</div>
 
+
 					<ul class="contacts">
-						<div v-for="contact in contacts" :key="contact.name" @click="showMessages(contact)" :class="{ 'clicked': selectedContact === contact }">
+						<div v-for="contact in contacts" :key="contact.name" @click="showMessages(contact)" :class="{ 'clicked': selectedContact === contact }" v-show="contact.visible === true">
 							<div class="aside-flex">
 								<img class="img-margin" :src="contact.avatar" alt="Avatar" :style="{ width: '60px', height: '60px' }">
 								<p>{{ contact.name }}</p>
 							</div>
 						</div>
 					</ul>
+<!-- 
+					<p v-for="contact in contacts.filter(contact => contact.name.includes(searchName))">
+						{{ contact.name }}
+					</p> -->
+
+					
 				</header>
 				<main class="chat-wrapper">
 					<div class="toolbar user-toolbar">
@@ -97,14 +103,15 @@
 
 					<div class="chat">
 						<div v-if="selectedContact">
-							<ul>
-						 		<li v-for="message in selectedContact.messages" :key="message.date" :class="getMessageClass(message.status)">
-									<p>{{ message.message }}</p>
-									<p>{{ extractTime(message.date) }}</p>
-						  		</li>
-							</ul>
-					  	</div>
-					</div>
+						  <ul>
+							<li v-for="message in selectedContact.messages" :key="message.date" :class="getMessageClass(message.status)">
+							  <p>{{ message.message }}</p>
+							  <p>{{ extractTime(message.date) }}</p>
+							</li>
+						  </ul>
+						</div>
+					  </div>
+					  
 
 					<div class="toolbar chat-toolbar">
 						<span class="icon">

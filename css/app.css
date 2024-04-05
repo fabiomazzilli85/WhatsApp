@@ -355,3 +355,13 @@ textarea {
 	background-color: lightgray; 
 	cursor: pointer;
   } 
+
+  .message-list {
+	position: relative;
+  }
+
+  .arrow-font {
+	position: absolute;
+	left: 350px;
+	top: 30px;
+  }

@@ -6,6 +6,7 @@ createApp({
       selectedContact: null,
       newMessage: '',
       searchQuery: '',
+      searchName: '',
       matchedNames: [],
       contacts: [
         {
@@ -173,7 +174,7 @@ createApp({
     }
   },
 
-
+  
   methods: {
     showMessages(contact) {
       this.selectedContact = contact;
@@ -202,6 +203,16 @@ createApp({
 
         setTimeout(this.sendAutoResponse, 1000); // Imposto il timer in millisecondi.
       }
+    },
+
+    searchContacts() {
+      this.contacts.forEach(contact => {
+        if (contact.name.includes(this.searchName)) {
+          contact.visible = true;
+        } else {
+          contact.visible = false;
+        }
+      });
     },
 
     sendAutoResponse() {
@@ -237,5 +248,7 @@ createApp({
 
       this.selectedContact.messages.push(autoResponse);
     },
+  },
+  computed: {
   }
 }).mount('#app');
