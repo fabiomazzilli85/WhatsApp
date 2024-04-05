@@ -230,6 +230,7 @@ createApp({
       //   sendAutoResponse() {
       // const autoResponse = {
       //    message: 'Ok',
+      //    message: 01101111 01101011 > ''Ok'' in codice binario.
       //    date: new Date().toLocaleString(),
       //    status: 'received'
       // Questi sono gli stessi elementi che compongono l'Array messages a parte la funzione che stampa l'ora reale, sempre in date.
