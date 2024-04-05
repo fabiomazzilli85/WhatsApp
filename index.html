@@ -51,16 +51,16 @@
 							</div>
 						</div>
 					</div>
+
 					<div class="search-bar">
 						<input
 							type="text"
 							name="search"
-							v-model="searchText"
+							v-model="searchQuery"
 							placeholder="Cerca o inizia una nuova chat"
 						/>
 						<i class="fa-solid fa-magnifying-glass"></i>
 					</div>
-
 
 					<ul class="contacts">
 						<div v-for="contact in contacts" :key="contact.name" @click="showMessages(contact)" :class="{ 'clicked': selectedContact === contact }">
