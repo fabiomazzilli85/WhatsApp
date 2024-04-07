@@ -192,7 +192,7 @@ createApp({
     },
 
     addMessage() {
-      if (this.newMessage.trim() !== '') { // Con questo metodo JS inserisce la data reale nel messaggio. 
+      if (this.newMessage.trim() !== '') { // Trimmo il messaggio, assicurandomi così che l'utente non inserisca una stringa vuota. 
         const newMsg = {
           message: this.newMessage,
           date: new Date().toLocaleString(), // Con questo metodo JS inserisce la data reale nel messaggio. 
