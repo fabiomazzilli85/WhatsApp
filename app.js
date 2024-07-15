@@ -174,7 +174,6 @@ createApp({
     }
   },
 
-  
   methods: {
     showMessages(contact) {
       this.selectedContact = contact;
@@ -188,67 +187,36 @@ createApp({
     },
 
     extractTime(dateTime) {
-      return dateTime.split(' ')[1].slice(0, 5); // Qui uso i metodi split (per ''separare'' la data) e slice (che estrae dalla posizione 0 alla 5)
+      return dateTime.split(' ')[1].slice(0, 5); // Usa i metodi split e slice per ottenere solo l'orario
     },
 
     addMessage() {
-      if (this.newMessage.trim() !== '') { // Trimmo il messaggio, assicurandomi così che l'utente non inserisca una stringa vuota. 
+      if (this.newMessage.trim() !== '') { // Controlla che il messaggio non sia vuoto
         const newMsg = {
           message: this.newMessage,
-          date: new Date().toLocaleString(), // Con questo metodo JS inserisce la data reale nel messaggio. 
+          date: new Date().toLocaleString(), // Inserisce la data attuale
           status: 'sent'
         };
-        this.selectedContact.messages.push(newMsg); // Pusho il  messaggio nell'array dei messages del contatto selezionato
-        this.newMessage = ''; // Pulisco il campo con stringa vuota.
+        this.selectedContact.messages.push(newMsg); // Aggiunge il messaggio all'array dei messaggi del contatto selezionato
+        this.newMessage = ''; // Pulisce il campo di input
 
-        setTimeout(this.sendAutoResponse, 1000); // Imposto il timer in millisecondi.
+        setTimeout(this.sendAutoResponse, 1000); // Imposta un timer di 1 secondo per la risposta automatica
       }
     },
 
     searchContacts() {
       this.contacts.forEach(contact => {
-        if (contact.name.includes(this.searchName)) {
-          contact.visible = true;
-        } else {
-          contact.visible = false;
-        }
+        contact.visible = contact.name.includes(this.searchName);
       });
     },
 
     sendAutoResponse() {
-      // Funzione per generare una stringa casuale
-      // Funzione per generare una stringa casuale esattamente come avviene con i number. 
-      // Creo una costante che contiene tutte le lettere dell'alfabeto, maiuscole e minusciole, più i numeri.
-      // Let result ovviamente stringa vuota.
-      // Uso un ciclo for per ciclare e faccio un return.  
-      // La risposta che il sistema genera ovviamente non ha senso, è una parola che non esiste. Ho implementato questa funzione a solo scopo didattico al posto dell'Ok richiesto da Gianluca, che ho precedentemente inserito e commentato sotto. 
-      const generateString = (length) => {
-        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        let result = '';
-        const charactersLength = characters.length;
-        for (let i = 0; i < length; i++) {
-          result += characters.charAt(Math.floor(Math.random() * charactersLength));
-        }
-        return result;
-      };
-
       const autoResponse = {
-        message: generateString(10),
+        message: 'Ok',
         date: new Date().toLocaleString(),
         status: 'received'
       };
-
-      //   sendAutoResponse() {
-      // const autoResponse = {
-      //    message: 'Ok',
-      //    message: 01101111 01101011 > ''Ok'' in codice binario.
-      //    date: new Date().toLocaleString(),
-      //    status: 'received'
-      // Questi sono gli stessi elementi che compongono l'Array messages a parte la funzione che stampa l'ora reale, sempre in date.
-
       this.selectedContact.messages.push(autoResponse);
-    },
-  },
-  computed: {
+    }
   }
 }).mount('#app');
